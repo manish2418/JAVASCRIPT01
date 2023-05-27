@@ -16,7 +16,9 @@
 
     <!-- event ke andr javascript function likh sakte hai -->
     <button onClick=" eventfunc()">Click me</button>
+    <button id="golivebtn">Go Live</button>
     <input type="text" onfocus="changecolor()" onkeyup="updatetext()" id="field">
+    <button id="field2">Not</button>
     <h1 id="heading">This is dummy text</h1>
     <script>
         // e yaha par event object hai aur ham yaha default ko preveant kar rahe form submit par
@@ -38,6 +40,29 @@
             let data = document.getElementById("field").value;
             document.getElementById("heading").innerHTML = data;
         }
+
+        // Event listner use case
+        let btnobj = document.getElementById("golivebtn");
+        let inputobj = document.getElementById("field2");
+
+        inputobj.addEventListener("click", () => {
+            alert("Hello");
+        });
+
+        btnobj.addEventListener("click", () => {
+            alert("Yor are live now!");
+        });
+
+
+        // ek se jyada ek saath handel kar sakte hai listner ko
+        btnobj.addEventListener("click", () => {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        });
+
+        btnobj.addEventListener("mouseover", () => {
+            btnobj.style.backgroundColor = "red";
+        });
     </script>
 
 </body>

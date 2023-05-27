@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- object jo create horha hai usko bhi handle kar skate hai event ko handle kar ke -->
+    <form onsubmit="formsubmit(event)" action="test.html">
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- event ke andr javascript function likh sakte hai -->
+    <button onClick=" eventfunc()">Click me</button>
+    <input type="text" onfocus="changecolor()" onkeyup="updatetext()" id="field">
+    <h1 id="heading">This is dummy text</h1>
+    <script>
+        // e yaha par event object hai aur ham yaha default ko preveant kar rahe form submit par
+        const formsubmit = (e) => {
+            console.log(e);
+            e.preventDefault();
+        }
+
+        const eventfunc = () => {
+            alert("this code is from function");
+        };
+        const changecolor = () => {
+            //particular object ko target karna padta hai by using DOM .
+            document.getElementById("field").style.backgroundColor = 'blue';
+        };
+
+        const updatetext = () => {
+            // pahle data ko let data me daala phir usko heading me push kar diya
+            let data = document.getElementById("field").value;
+            document.getElementById("heading").innerHTML = data;
+        }
+    </script>
+
+</body>
+
+</html>
